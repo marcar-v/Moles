@@ -10,7 +10,6 @@ public class MoleTester : MonoBehaviour
         moles = FindObjectsOfType<Mole>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))

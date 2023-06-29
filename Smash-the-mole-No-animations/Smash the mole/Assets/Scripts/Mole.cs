@@ -10,24 +10,27 @@ public class Mole : MonoBehaviour
     [SerializeField]
     ParticleSystem moleParticle;
 
-    //Sube
+
+    [SerializeField] AudioSource hitSound;
+
+    public void PlayHitSound()
+    {
+        hitSound.Play();
+    }
+
     public void MoleOut()
     {
-        //Hacer algo para activar esa animación
-        //Entrar al animator, acceder a la variable topoArriba y modificar ese BOOL a false
         moleAnimator.SetBool("topoArriba", true);
     }
 
-    //Baja
     public void MoleIn()
     {
-        //Hacer algo para activar esa animación
-        //Entrar al animator, acceder a la variable topoArriba y modificar ese BOOL a true
         moleAnimator.SetBool("topoArriba", false);
     }
 
     public void SmashMole()
     {
+        PlayHitSound();
         MoleIn();
         moleParticle.Play();
         Events.EventSmashedMole(this);
